@@ -1,7 +1,8 @@
 from flask import Flask, session, render_template, request, url_for, redirect,abort, flash
 import sqlite3
+import os
 
-DB_PATH = "database.db"
+DB_PATH = os.getenv("DB_PATH", "database.db")
 
 def get_conn():
     conn = sqlite3.connect(DB_PATH)

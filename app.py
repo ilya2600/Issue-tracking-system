@@ -47,6 +47,9 @@ from views_projects import (
 app = Flask(__name__)
 app.secret_key = "dev-secret"  
 
+# Render/Gunicorn imports `app` directly, so initialize schema at import time too.
+init_db()
+
 
 @app.route("/")
 def home():
