@@ -49,6 +49,8 @@ app.secret_key = "dev-secret"
 
 # Render/Gunicorn imports `app` directly, so initialize schema at import time too.
 init_db()
+# Ensure first admin is bootstrapped in import-based runtimes (e.g., Render/Gunicorn).
+ensure_master()
 
 
 @app.route("/")
